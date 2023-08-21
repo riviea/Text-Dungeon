@@ -35,5 +35,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Scenes\Inventory_Scene.cs" />
+    <Compile Include="Scenes\Status_Scene.cs" />
+    <Compile Include="Scenes\Title_Scene.cs" />
+    <Compile Include="UI\Command.cs" />
+    <Compile Include="Main\Game.cs" />
+    <Compile Include="Data\Item.cs" />
+    <Compile Include="Data\Player.cs" />
+    <Compile Include="Main\Program.cs" />
+    <Compile Include="Scenes\Scene.cs" />
+    <Compile Include="Main\SceneManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
