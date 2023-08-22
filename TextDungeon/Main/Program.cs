@@ -11,13 +11,13 @@ namespace TextDungeon
 
         static void Main()
         {
-            Game textDungeon = new Game();
+            Game gameManager = new Game();
             
             while(true)
             {
-                textDungeon.Update();
-                textDungeon.Render();
-                textDungeon.InputAct();
+                gameManager.Update();
+                gameManager.Render();
+                gameManager.InputAct();
                 Console.Clear();
             }
         }

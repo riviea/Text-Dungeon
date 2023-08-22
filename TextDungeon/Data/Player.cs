@@ -3,19 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Activation;
 using System.Text;
 using System.Threading.Tasks;
+using static TextDungeon.Item;
 
 namespace TextDungeon
 {
     public class Player
     {
-
+        //item
         private int level;
         private Tuple<string, string> job;
         private int atk, def, hp;
         private int gold;
+
+        //equip
+        private Dictionary<string, Item> equips = new Dictionary<string, Item>();
+        
+        //inven
+        private List<Item> items = new List<Item>();
+
+        // property
+        public Dictionary<string, Item> Equips { get { return equips; } }
+        public List<Item> Items { get { return items; } }
 
         public int Level { get { return level; } }
 
@@ -29,7 +41,19 @@ namespace TextDungeon
 
         public Player()
         {
+            equips.Add("head", new EquipItem());
+            equips.Add("body", new EquipItem());
+            equips.Add("legs", new EquipItem());
+            equips.Add("shoose", new EquipItem());
+            equips.Add("arm", new EquipItem());
+            equips.Add("weqpon", new EquipItem());
 
+            level = 1;
+            job = new Tuple<string, string>("Chad", "전사");
+            atk = 10;
+            def = 5;
+            hp = 100;
+            gold = 1500;
         }
 
         public Player(int level, Tuple<string, string> job, int atk, int def, int hp, int gold)

@@ -11,24 +11,29 @@ namespace TextDungeon
 {
     internal class Game
     {
+        Player player = new Player();
+
         private int cursor;
+
         public Game ()
         {
-            cursor = 0;
+            cursor = -1;
             SceneManager.Instance.Call(new Title_Scene());
         }
 
         public int Cursor { get { return cursor; } set { cursor = value; } }
+        public Player Player { get { return player; } }
 
         public void Update()
         {
             var scene = SceneManager.Instance.Scene;
 
-            if (cursor > 0)
+            if ((cursor > 0))
             {
                 if ((scene.cHandler.ContainsKey(scene.Commands[cursor - 1].CommandKey)))
                 {
                     scene.cHandler[scene.Commands[cursor - 1].CommandKey]();
+                    return;
                 }
             }
         }
@@ -42,10 +47,11 @@ namespace TextDungeon
         {
 
             Console.WriteLine("원하시는 행동을 입력해주세요.");
-            Console.Write(">> ");
+            
 
             while (true)
             {
+                Console.Write(">> ");
                 string input = Console.ReadLine();
                 int _cursor;
 

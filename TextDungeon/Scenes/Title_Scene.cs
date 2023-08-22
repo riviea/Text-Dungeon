@@ -72,12 +72,12 @@ namespace TextDungeon.Scenes
 
         public void GoStatus()
         {
-            Console.WriteLine("스테이터스 선택");
+            SceneManager.Instance.Call(new Status_Scene());
         }
 
         public void GoInventory()
         {
-            Console.WriteLine("인벤토리 선택");
+            SceneManager.Instance.Call(new Inventory_Scene()); Console.WriteLine("인벤토리 선택");
         }
     }
 }

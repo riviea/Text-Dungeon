@@ -8,9 +8,12 @@ namespace TextDungeon
 {
     public class Item
     {
-        private string name;
-        private int atk, def, hp;
-        private string desc;
+        public enum ItemType { Useable, Equipable}
+        
+        protected string name;
+        protected int atk, def, hp;
+        protected string desc;
+        protected ItemType type;
 
         public string Name { get { return name; } }
 
@@ -19,6 +22,8 @@ namespace TextDungeon
         public int Hp { get { return hp; }}
 
         public string Desc { get { return desc; }}
+
+        public ItemType Type { get { return type; } }
 
         public Item()
         {
