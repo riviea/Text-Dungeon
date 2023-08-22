@@ -21,7 +21,7 @@ namespace TextDungeon.Scenes
 
         public void CreateContents()
         {
-            contents = "스파르타 마을에 오신 여러분 환영합니다.\n" +
+            contents = "마을에 오신 여러분 환영합니다.\n" +
                         "이곳에서 던전으로 들어가기 전 활동을 할 수 있습니다.";
         }
 

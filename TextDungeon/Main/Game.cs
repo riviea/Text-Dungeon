@@ -11,18 +11,19 @@ namespace TextDungeon
 {
     internal class Game
     {
-        Player player = new Player();
+        Player player;
 
         private int cursor;
+        public int Cursor { get { return cursor; } set { cursor = value; } }
+        public Player Player { get { return player; } }
 
         public Game ()
         {
             cursor = -1;
             SceneManager.Instance.Call(new Title_Scene());
+            DataManager.Instance.Initialize();
+            player = new Player();
         }
-
-        public int Cursor { get { return cursor; } set { cursor = value; } }
-        public Player Player { get { return player; } }
 
         public void Update()
         {

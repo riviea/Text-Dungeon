@@ -8,7 +8,7 @@ namespace TextDungeon
 {
     public class Item
     {
-        public enum ItemType { Useable, Equipable}
+        public enum ItemType { Useable, Equipable }
         
         protected string name;
         protected int atk, def, hp;
@@ -17,13 +17,13 @@ namespace TextDungeon
 
         public string Name { get { return name; } }
 
-        public int Atk { get { return atk; } }
-        public int Def { get { return def; }}
-        public int Hp { get { return hp; }}
+        public int Atk { get { return atk; } set { atk = value; } }
+        public int Def { get { return def; } set { def = value; } }
+        public int Hp { get { return hp; } set { hp = value; } }    
 
-        public string Desc { get { return desc; }}
+        public string Desc { get { return desc; } set { desc = value; } }
 
-        public ItemType Type { get { return type; } }
+        public ItemType Type { get { return type; } set { type = value; } }
 
         public Item()
         {

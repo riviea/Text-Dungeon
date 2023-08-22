@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace TextDungeon
         public enum Parts { Head, Body, Legs, Shoose, Arm, Weapon }
         private Parts part;
 
+        public Parts Part { get { return part; } }
+
         // Increase Status
         public EquipItem()
         {
@@ -22,6 +25,8 @@ namespace TextDungeon
 
         public EquipItem(string name, int atk, int def, int hp, string desc, Parts _part)
         {
+            this.type = ItemType.Equipable;
+
             this.name = name;
             this.atk = atk;
             this.def = def;

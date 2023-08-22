@@ -11,7 +11,7 @@ namespace TextDungeon.Scenes
 {
     internal class Status_Scene : Scene, IDrawableScene
     {
-        public Player player = new Player();
+        public Player player;
 
         public Status_Scene()
         {
@@ -24,7 +24,7 @@ namespace TextDungeon.Scenes
 
         public void CreateContents()
         {
-
+            player = DataManager.Instance.Player;
         }
 
         public override void AddCommand()
@@ -57,13 +57,13 @@ namespace TextDungeon.Scenes
         public void DisplayContents()
         {
             Console.WriteLine("*** contents ***");
-            //Console.WriteLine($"Lv. {Player.Level.ToString("D2")}");
-            //Console.WriteLine($"{Game.Player.JobEng} ( {Game.Player.JobKor} ");
-            //Console.WriteLine($"공격력: {Game.Player.Atk}");
-            //Console.WriteLine($"방어력: {Game.Player.Def}");
-            //Console.WriteLine($"체력: {Game.Player.Hp}");
-            //Console.WriteLine($"Gold: {Game.Player.Gold}");
-            //Console.WriteLine();
+            Console.WriteLine($"Lv. {player.Level.ToString("D2")}");
+            Console.WriteLine($"{player.JobEng} ( {player.JobKor} )");
+            Console.WriteLine($"공격력: {player.Atk}");
+            Console.WriteLine($"방어력: {player.Def}");
+            Console.WriteLine($"체력: {player.Hp}");
+            Console.WriteLine($"Gold: {player.Gold}");
+            Console.WriteLine();
         }
 
         public void DisplayCommands()
