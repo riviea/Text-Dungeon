@@ -17,6 +17,7 @@ namespace TextDungeon.Scenes
         {
             sceneName = "상태 보기";
             sceneDesc = "캐릭터의 정보가 표시됩니다.";
+
             AddCommand();
             SetHandler();
             CreateContents();
@@ -30,6 +31,8 @@ namespace TextDungeon.Scenes
         public override void AddCommand()
         {
             Commands.Add(new Command("나가기", "exit"));
+
+            cursorMax = Commands.Count;
         }
 
         public override void SetHandler()
@@ -56,12 +59,37 @@ namespace TextDungeon.Scenes
 
         public void DisplayContents()
         {
-            Console.WriteLine("*** contents ***");
+            int increase_atk, increase_def, increase_hp;
+            increase_atk = increase_def = increase_hp = 0;
+
+            foreach (var i in DataManager.Instance.Player.Equips)
+            {
+                if (i.Value != null)
+                {
+                    increase_atk += i.Value.Atk;
+                    increase_def += i.Value.Def;
+                    increase_hp += i.Value.Hp;
+                }
+            }
+
             Console.WriteLine($"Lv. {player.Level.ToString("D2")}");
             Console.WriteLine($"{player.JobEng} ( {player.JobKor} )");
-            Console.WriteLine($"공격력: {player.Atk}");
-            Console.WriteLine($"방어력: {player.Def}");
-            Console.WriteLine($"체력: {player.Hp}");
+
+            Console.Write($"공격력: {player.Atk}");
+            if (increase_atk > 0)
+                Console.Write($" (+{increase_atk})");
+            Console.WriteLine();
+
+            Console.Write($"방어력: {player.Def}");
+            if (increase_def > 0)
+                Console.Write($" (+{increase_def})");
+            Console.WriteLine();
+
+            Console.Write($"체력: {player.Hp}");
+            if (increase_hp > 0)
+                Console.Write($" (+{increase_hp})");
+            Console.WriteLine();
+
             Console.WriteLine($"Gold: {player.Gold}");
             Console.WriteLine();
         }
@@ -70,7 +98,7 @@ namespace TextDungeon.Scenes
         {
             for (int i = 0; i < Commands.Count; ++i)
             {
-                Console.WriteLine($"{i+1}. {Commands[i].CommandName}");
+                Console.WriteLine($"{i}. {Commands[i].CommandName}");
             }
             Console.WriteLine();
         }

@@ -44,6 +44,8 @@ namespace TextDungeon
             items.Add(new EquipItem("낡은 검", 2, 0, 0, "쉽게 볼 수 있는 낡은 검입니다.", EquipItem.Parts.Weapon));
 
             player = new Player(1, new Tuple<string, string>("Chad", "전사"), 10, 5, 100, 1500);
+            player.Equips.Add(EquipItem.Parts.Body, items.Find(x => x.Name == "무쇠갑옷"));
+            //player.Equips.Add(EquipItem.Parts.Weapon, items.Find(x => x.Name == "낡은 검"));
         }
 
     }

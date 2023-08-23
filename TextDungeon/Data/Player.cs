@@ -20,13 +20,13 @@ namespace TextDungeon
         private int gold;
 
         // Equip
-        private Dictionary<string, Item> equips = new Dictionary<string, Item>();
+        private Dictionary<EquipItem.Parts, Item> equips = new Dictionary<EquipItem.Parts, Item>();
         
         // Inventory
         private List<Item> items = new List<Item>();
 
         // Property
-        public Dictionary<string, Item> Equips { get { return equips; } }
+        public Dictionary<EquipItem.Parts, Item> Equips { get { return equips; } }
         public List<Item> Items { get { return items; } }
 
         public int Level { get { return level; } }
@@ -41,12 +41,12 @@ namespace TextDungeon
 
         public Player()
         {
-            equips.Add("head", new EquipItem());
-            equips.Add("body", new EquipItem());
-            equips.Add("legs", new EquipItem());
-            equips.Add("shoose", new EquipItem());
-            equips.Add("arm", new EquipItem());
-            equips.Add("weqpon", new EquipItem());
+            equips.Add(EquipItem.Parts.Head, new EquipItem());
+            equips.Add(EquipItem.Parts.Body, new EquipItem());
+            equips.Add(EquipItem.Parts.Legs, new EquipItem());
+            equips.Add(EquipItem.Parts.Shoose, new EquipItem());
+            equips.Add(EquipItem.Parts.Arm, new EquipItem());
+            equips.Add(EquipItem.Parts.Weapon, new EquipItem());
         }
 
         public Player(int level, Tuple<string, string> job, int atk, int def, int hp, int gold)

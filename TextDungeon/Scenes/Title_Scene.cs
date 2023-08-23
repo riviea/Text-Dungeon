@@ -14,6 +14,7 @@ namespace TextDungeon.Scenes
         {
             sceneName = string.Empty;
             sceneDesc = string.Empty;
+
             CreateContents();
             AddCommand();
             SetHandler();
@@ -29,6 +30,8 @@ namespace TextDungeon.Scenes
         {
             Commands.Add(new Command("상태보기", "status"));
             Commands.Add(new Command("인벤토리", "inventory"));
+
+            cursorMax = Commands.Count;
         }
 
         public override void SetHandler()
@@ -65,7 +68,7 @@ namespace TextDungeon.Scenes
         {
             for (int i = 0; i < Commands.Count; ++i)
             {
-                Console.WriteLine($"{i + 1}. {Commands[i].CommandName}");
+                Console.WriteLine($"{i}. {Commands[i].CommandName}");
             }
             Console.WriteLine();
         }
@@ -77,7 +80,7 @@ namespace TextDungeon.Scenes
 
         public void GoInventory()
         {
-            SceneManager.Instance.Call(new Inventory_Scene()); Console.WriteLine("인벤토리 선택");
+            SceneManager.Instance.Call(new Inventory_Scene());
         }
     }
 }

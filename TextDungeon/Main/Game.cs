@@ -29,11 +29,12 @@ namespace TextDungeon
         {
             var scene = SceneManager.Instance.Scene;
 
-            if ((cursor > 0))
+            if ((cursor >= scene.CursorMin) && (cursor < scene.CursorMax))
             {
-                if ((scene.cHandler.ContainsKey(scene.Commands[cursor - 1].CommandKey)))
+                if ((scene.cHandler.ContainsKey(scene.Commands[cursor].CommandKey)))
                 {
-                    scene.cHandler[scene.Commands[cursor - 1].CommandKey]();
+                    scene.SetSceneCursor(cursor);
+                    scene.cHandler[scene.Commands[cursor].CommandKey]();
                     return;
                 }
             }
@@ -46,10 +47,8 @@ namespace TextDungeon
 
         public void InputAct()
         {
-
             Console.WriteLine("원하시는 행동을 입력해주세요.");
             
-
             while (true)
             {
                 Console.Write(">> ");
@@ -58,14 +57,14 @@ namespace TextDungeon
 
                 if (int.TryParse(input, out _cursor))
                 {
-                    if ((_cursor > 0) && (_cursor <= SceneManager.Instance.Scene.CommandAmount()))
+                    if ((_cursor >= SceneManager.Instance.Scene.CursorMin) && (_cursor < SceneManager.Instance.Scene.CursorMax))
                     {
                         cursor = _cursor;
                         break;
                     }
                 }
                 else
-                    Console.Write("잘못된 입력입니다.");
+                    Console.WriteLine(">> 잘못된 입력입니다.");
             }
         }
     }

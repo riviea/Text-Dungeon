@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Data\DataManager.cs" />
     <Compile Include="Data\EquipItem.cs" />
+    <Compile Include="Scenes\Equip_Scene.cs" />
     <Compile Include="Scenes\Inventory_Scene.cs" />
     <Compile Include="Scenes\Status_Scene.cs" />
     <Compile Include="Scenes\Title_Scene.cs" />
